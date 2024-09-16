@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "ConvNetI/O",
+  "version": "1.0",
+  "description": "Export/Import neural networks to ConvNetJS demos",
+  "permissions": ["tabs"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "ConvNetI/O",
+    "default_icon": {
+      "16": "icon-16.png",
+      "48": "icon-48.png",
+      "128": "icon-128.png"
+    }
+  },
+  "icons": {
+    "16": "icon-16.png",
+    "48": "icon-48.png",
+    "128": "icon-128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://cs.stanford.edu/people/karpathy/convnetjs/*"],
+      "js": ["content-script.js"],
+	  "world": "ISOLATED"
+    },
+	{
+      "matches": ["https://cs.stanford.edu/people/karpathy/convnetjs/*"],
+      "js": ["main.js"],
+	  "world": "MAIN"
+    }
+  ]
+}
